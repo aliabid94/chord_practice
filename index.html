@@ -124,7 +124,6 @@
         .reduce((a, b) => a.length > b.length ? a : b);
       let root_value = note_values[root];
       let extension = chord_name.substring(root.length);
-      console.log(root_value, extension)
       let extension_values = extension_map[extension];
       let chord_vals = extension_values.map(delta => (root_value + delta) % 12);
       let chord_w_octaves = [];

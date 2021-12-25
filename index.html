@@ -105,7 +105,7 @@
     keyboard_keys = keyboard_keys.map(
       key => key + (key.startsWith("a") || key.startsWith("b") ? 4 : 3)).concat(keyboard_keys.map(
       key => key + (key.startsWith("a") || key.startsWith("b") ? 5 : 4)));
-    let audio_files = keyboard_keys.map(key => new Audio(`/audio/${key}.mp3`))
+    let audio_files = keyboard_keys.map(key => new Audio(`audio/${key}.mp3`))
 
     var note_values = {};
     var [last_note, last_value] = [null, 0];

@@ -124,31 +124,31 @@
         <button style="border: none; background-color: whitesmoke; padding: 1rem;  cursor: pointer;  font-weight: bold;" onclick="loadChords(triads_and_sevenths)">Major, Minor &amp; 7ths</button>
         <button style="border: none; background-color: whitesmoke; padding: 1rem;  cursor: pointer;  font-weight: bold;" onclick="loadChords(suspensions)">Suspensions</button>
       </div>
-      <div style="flex-grow: 1; height: 10rem;">
+      <div style="flex-grow: 1; flex-basis: 0; height: 10rem;">
         <textarea autofocus class="chordset" style="width: 100%; height: 100%; border: none; background-color: whitesmoke; padding: 1rem; font-family: monospace; font-size: 14px;" 
         placeholder="Enter chords to practice here separated by commas, or click one of the preloaded chord sets on the left. Set the timing below if needed. Click 'Start' to begin."></textarea>
       </div>
     </div>
     <div style="display: flex; text-transform: uppercase; font-size: 0.75rem; text-align: left; gap: 1rem; flex-wrap: wrap">
-      <label style="flex-grow: 1;">
+      <label style="flex-grow: 1; flex-basis: 0;">
         <div>
           Time to Answer
         </div>
         <input class="time" type="text" value="5" style="margin-top: 0.25rem; border: none; padding: 1rem; background-color: whitesmoke; width: 100%">
       </label>
-      <label style="flex-grow: 1;">
+      <label style="flex-grow: 1; flex-basis: 0;">
         <div>
           Speedup Every Cycle
         </div>
         <input class="speedup" type="text" value="0.01" style="margin-top: 0.25rem; border: none; padding: 1rem; background-color: whitesmoke; width: 100%">
       </label>
-      <label style="flex-grow: 1;">
+      <label style="flex-grow: 1; flex-basis: 0;">
         <div>
           Answer Display Time
         </div>
         <input class="display-time" type="text" value="2.5" style="margin-top: 0.25rem; border: none; padding: 1rem; background-color: whitesmoke; width: 100%">
       </label>
-      <button class="start" onclick="start()" style="padding: 1rem 2.5rem; font-size: 2rem; background-color: teal; color: white; border: none; font-weight: bold; cursor: pointer; flex-grow: 1;">
+      <button class="start" onclick="start()" style="padding: 1rem 2.5rem; font-size: 2rem; background-color: teal; color: white; border: none; font-weight: bold; cursor: pointer; flex-grow: 1; flex-basis: 0;">
         START
       </button>    
     </div>    

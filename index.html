@@ -16,11 +16,23 @@
     .keyboard .key.highlight {
       fill: teal !important;
     }
+    .keyboard text {
+      text-anchor: middle;
+      fill: white;
+      visibility: hidden;
+    }
+    .keyboard text.highlight {
+      visibility: visible;
+    }
+    .keyboard text.acc {
+      font-size: 8px;
+      font-weight: normal;
+    }
   </style>
 </head>
 <body style="text-align: center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <div style="width: 800px; max-width: 100%; margin: 0 auto;">
-    <svg class="keyboard" xml:space="preserve" viewBox="0 0 322 120" style="margin: 0 auto; width: 100%">
+    <svg class="keyboard" xml:space="preserve" viewBox="-0.5 -0.5 323 121" style="margin: 0 auto; width: 100%">
       <g octave="0">
         <rect class="key" nval="c3" x="0" y="0" />
         <rect class="key" nval="d3" x="23" y="0" />
@@ -34,6 +46,23 @@
         <rect class="key acc" nval="f-3" x="82.25" y="0" />
         <rect class="key acc" nval="g-3" x="108.25" y="0" />
         <rect class="key acc" nval="a-4" x="134.75" y="0" />
+        <text x="11" y="110" nval="c3">C</text>
+        <text x="34" y="110" nval="d3">D</text>
+        <text x="57" y="110" nval="e3">E</text>
+        <text x="80" y="110" nval="f3">F</text>
+        <text x="103" y="110" nval="g3">G</text>
+        <text x="126" y="110" nval="a4">A</text>
+        <text x="149" y="110" nval="b4">B</text>
+        <text class="acc sharp" x="20.8333" y="75" nval="c-3">C#</text>
+        <text class="acc sharp" x="47.5" y="75" nval="d-3">D#</text>
+        <text class="acc sharp" x="88.75" y="75" nval="f-3">F#</text>
+        <text class="acc sharp" x="114.75" y="75" nval="g-3">G#</text>
+        <text class="acc sharp" x="141.25" y="75" nval="a-4">A#</text>
+        <text class="acc flat" x="20.8333" y="75" nval="c-3">Db</text>
+        <text class="acc flat" x="47.5" y="75" nval="d-3">Eb</text>
+        <text class="acc flat" x="88.75" y="75" nval="f-3">Gb</text>
+        <text class="acc flat" x="114.75" y="75" nval="g-3">Ab</text>
+        <text class="acc flat" x="141.25" y="75" nval="a-4">Bb</text>
       </g>
       <g octave="1" transform="translate(161, 0)">
         <rect class="key" nval="c4" x="0" y="0" />
@@ -48,6 +77,23 @@
         <rect class="key acc" nval="f-4" x="82.25" y="0" />
         <rect class="key acc" nval="g-4" x="108.25" y="0" />
         <rect class="key acc" nval="a-5" x="134.75" y="0" />
+        <text x="11" y="110" nval="c4">C</text>
+        <text x="34" y="110" nval="d4">D</text>
+        <text x="57" y="110" nval="e4">E</text>
+        <text x="80" y="110" nval="f4">F</text>
+        <text x="103" y="110" nval="g4">G</text>
+        <text x="126" y="110" nval="a5">A</text>
+        <text x="149" y="110" nval="b5">B</text>
+        <text class="acc sharp" x="20.8333" y="75" nval="c-4">C#</text>
+        <text class="acc sharp" x="47.5" y="75" nval="d-4">D#</text>
+        <text class="acc sharp" x="88.75" y="75" nval="f-4">F#</text>
+        <text class="acc sharp" x="114.75" y="75" nval="g-4">G#</text>
+        <text class="acc sharp" x="141.25" y="75" nval="a-5">A#</text>
+        <text class="acc flat" x="20.8333" y="75" nval="c-4">Db</text>
+        <text class="acc flat" x="47.5" y="75" nval="d-4">Eb</text>
+        <text class="acc flat" x="88.75" y="75" nval="f-4">Gb</text>
+        <text class="acc flat" x="114.75" y="75" nval="g-4">Ab</text>
+        <text class="acc flat" x="141.25" y="75" nval="a-5">Bb</text>
       </g>
     </svg>
     <div style="margin: 1rem 0 0.75rem; background-color: whitesmoke; width: auto;">
@@ -57,46 +103,54 @@
       <div class="countdown animate" style="width: 100%; height: 0.25rem; background-color: teal;"></div>
     </div>
     <div style="margin: 1rem 0 0.75rem; display: flex; gap: 1rem;">
-      <div style="display: flex; flex-direction: column; gap: 1rem; flex-grow: 1;">
+      <div style="display: flex; flex-direction: column; gap: 1rem; flex-grow: 1; max-height: 10rem; overflow-y: scroll; padding-right: 1rem; box-sizing: border-box;">
         <button style="border: none; background-color: whitesmoke; padding: 1rem; cursor: pointer;  font-weight: bold;" onclick="loadChords(triads_in_c)">Major &amp; Minor in Key of C</button>
+        <button style="border: none; background-color: whitesmoke; padding: 1rem; cursor: pointer;  font-weight: bold;" onclick="loadChords(triads_root_c)">Major &amp; Minor w/ Root in C</button>
         <button style="border: none; background-color: whitesmoke; padding: 1rem;  cursor: pointer;  font-weight: bold;" onclick="loadChords(triads)">All Major &amp; Minor</button>
+        <button style="border: none; background-color: whitesmoke; padding: 1rem;  cursor: pointer;  font-weight: bold;" onclick="loadChords(sevenths_root_c)">7ths w/ Root in C</button>
+        <button style="border: none; background-color: whitesmoke; padding: 1rem;  cursor: pointer;  font-weight: bold;" onclick="loadChords(sevenths)">All 7ths</button>
         <button style="border: none; background-color: whitesmoke; padding: 1rem;  cursor: pointer;  font-weight: bold;" onclick="loadChords(triads_and_sevenths)">Major, Minor &amp; 7ths</button>
+        <button style="border: none; background-color: whitesmoke; padding: 1rem;  cursor: pointer;  font-weight: bold;" onclick="loadChords(suspended_and_adds)">Suspended &amp; Adds</button>
       </div>
       <div style="flex-grow: 1">
         <textarea autofocus class="chordset" style="width: 100%; height: 100%; border: none; background-color: whitesmoke; padding: 1rem; font-family: monospace; font-size: 14px;" 
-        placeholder="Enter chords here seperated by commas (no spaces), or click one of the chord sets on the left. Set the time given per chord below, along with speed increase per chord."></textarea>
+        placeholder="Enter chords to practice here seperated by commas, or click one of the preloaded chord sets on the left. Set the timing below if needed. Click 'Start' to begin."></textarea>
       </div>
     </div>
     <div style="display: flex; text-transform: uppercase; font-size: 0.75rem; text-align: left; gap: 1rem">
       <label style="flex-grow: 1;">
         <div>
-          Time
+          Time to Answer (sec)
         </div>
         <input class="time" type="text" value="5" style="margin-top: 0.25rem; border: none; padding: 1rem; background-color: whitesmoke; width: 100%">
       </label>
       <label style="flex-grow: 1;">
         <div>
-          Speedup
+          Speedup Every Cycle (sec)
         </div>
         <input class="speedup" type="text" value="0.01" style="margin-top: 0.25rem; border: none; padding: 1rem; background-color: whitesmoke; width: 100%">
       </label>
+      <label style="flex-grow: 1;">
+        <div>
+          Answer Display Time (sec)
+        </div>
+        <input class="display-time" type="text" value="2.5" style="margin-top: 0.25rem; border: none; padding: 1rem; background-color: whitesmoke; width: 100%">
+      </label>
+      <button class="start" onclick="start()" style="padding: 1rem 2.5rem; font-size: 2rem; background-color: teal; color: white; border: none; font-weight: bold; cursor: pointer">
+        START
+      </button>    
     </div>    
-    <button class="start" onclick="start()" style="margin-top: 1rem; font-size: 2rem; padding: 0.75rem; background-color: teal; color: white; border: none; width: 100%; font-weight: bold; cursor: pointer">
-      START
-    </button>  
   </div>
   <script>
     var note_names = ["A", "A#", "Bb", "B", "C", "C#", "Db", "D", "D#", "Eb", "E", "F", "F#", "Gb", "G", "G#", "Ab"];
-    var triads_in_c = ["C", "Dm", "Em", "F", "G", "Am"];
-    let extension_map = {
-      "": [0, 4, 7],
-      "m": [0, 3, 7],
-      "m7": [0, 3, 7, 10],
-      "7": [0, 4, 7, 10],
-      "maj7": [0, 4, 7, 11],
-    }
     var triads = note_names.concat(note_names.map(note => note + "m"));
-    var triads_and_sevenths = triads.concat(note_names.map(note => note + "7"), note_names.map(note => note + "maj7"), note_names.map(note => note + "m7"));
+    var sevenths = [].concat(note_names.map(note => note + "7"), note_names.map(note => note + "maj7"), note_names.map(note => note + "m7"));
+    var root_c_filter = chord_name => !chord_name.includes("#") && !chord_name.includes("b");
+    var triads_in_c = ["C", "Dm", "Em", "F", "G", "Am"];
+    var triads_root_c = triads.filter(root_c_filter);
+    var sevenths_root_c = sevenths.filter(root_c_filter);
+    var triads_and_sevenths = triads.concat(sevenths);
+    var suspended_and_adds = [].concat(note_names.map(note => note + "sus2"), note_names.map(note => note + "sus4"), triads.map(note => note + "add9"));
     var keyboard_keys = note_names
       .filter(note => !note.endsWith("b"))
       .map(note => note.toLowerCase().replace("#", "-"));
@@ -107,6 +161,17 @@
       key => key + (key.startsWith("a") || key.startsWith("b") ? 5 : 4)));
     let audio_files = keyboard_keys.map(key => new Audio(`audio/${key}.mp3`))
 
+    let extension_map = {
+      "": [0, 4, 7],
+      "m": [0, 3, 7],
+      "m7": [0, 3, 7, 10],
+      "7": [0, 4, 7, 10],
+      "maj7": [0, 4, 7, 11],
+      "sus2": [0, 2, 7],
+      "sus4": [0, 5, 7],
+      "add9": [0, 4, 7, 14],
+      "madd9": [0, 3, 7, 14],
+    }
     var note_values = {};
     var [last_note, last_value] = [null, 0];
     for (let note of note_names) {
@@ -118,12 +183,16 @@
       last_note = note;
       last_value = new_value;
     }
-    var getChordKeys = (chord_name) => {
+    var splitChordName = (chord_name) => {
       let root = note_names
         .filter(note => chord_name.startsWith(note))
         .reduce((a, b) => a.length > b.length ? a : b);
-      let root_value = note_values[root];
       let extension = chord_name.substring(root.length);
+      return [root, extension];      
+    }
+    var getChordKeys = (chord_name) => {
+      let [root, extension] = splitChordName(chord_name);
+      let root_value = note_values[root];
       let extension_values = extension_map[extension];
       let chord_vals = extension_values.map(delta => (root_value + delta) % 12);
       let chord_w_octaves = [];
@@ -141,12 +210,28 @@
       document.querySelectorAll(`.key.highlight`).forEach(
         key => key.classList.remove("highlight")
       );
+      document.querySelectorAll(`.keyboard text`).forEach(n => n.classList.remove("highlight"));
     }
     var highlightChord = (chord_name) => {
       clearHighlights();
       let chord_keys = getChordKeys(chord_name);
       for (let key of chord_keys) {
         document.querySelector(`.keyboard .key[nval="${key}"]`).classList.add("highlight");
+        let accidental = "";
+        if (key.includes("-")) {
+          let [root, extension] = splitChordName(chord_name);
+          console.log(root, " + ", extension)
+          if (root.includes("#")) {
+            accidental = ".sharp";
+          } else if (root.includes("b")) {
+            accidental = ".flat";
+          } else if (extension_map[extension].includes(3)) {
+            accidental = ".flat";
+          } else {
+            accidental = ".sharp";
+          }
+        }
+        document.querySelector(`.keyboard text${accidental}[nval="${key}"]`).classList.add("highlight");
       }
     } 
     var playChord = (chord_name) => {
@@ -167,12 +252,13 @@
       if (state == "STOPPED") {
         var time = parseFloat(document.querySelector(".time").value)
         var speedup = parseFloat(document.querySelector(".speedup").value)
-        chordset = document.querySelector(".chordset").value.split(",");
+        var display_time = parseFloat(document.querySelector(".display-time").value)
+        chordset = document.querySelector(".chordset").value.split(",").map(c => c.trim());
         if (chordset.length === 1 && chordset[0] === "") {
           alert("Enter chords.")
           return;
         }
-        startIteration(time, speedup);
+        startIteration(time, speedup, display_time);
         document.querySelector(".start").innerHTML = "STOP";
         state = "STARTED";
       } else {
@@ -181,7 +267,7 @@
         state = "STOPPED";
       }
     }
-    var startIteration = (time, speedup, previous_chord) => {
+    var startIteration = (time, speedup, display_time, previous_chord) => {
       clearHighlights();
       var selected_chord_index = Math.floor(chordset.length * Math.random());
       var selected_chord = chordset[selected_chord_index];
@@ -192,16 +278,16 @@
       document.querySelector(".countdown").style.transition = `width ${time}s linear`;
       document.querySelector(".countdown").style.visibility = `visible`;
       document.querySelector(".countdown").style.width = "0%";
-      timeout = window.setTimeout(endInteration.bind(null, time, speedup, selected_chord), time * 1000);
+      timeout = window.setTimeout(endInteration.bind(null, time, speedup, display_time, selected_chord), time * 1000);
     }
-    var endInteration = (time, speedup, selected_chord) => {
+    var endInteration = (time, speedup, display_time, selected_chord) => {
       document.querySelector(".countdown").style.transition = `none`;
       document.querySelector(".countdown").style.width = "100%";
       document.querySelector(".countdown").style.visibility = `hidden`;
       highlightChord(selected_chord);
       playChord(selected_chord);
       time = Math.max(time - speedup, 1);
-      timeout = window.setTimeout(startIteration.bind(null, time, speedup, selected_chord), 2500);
+      timeout = window.setTimeout(startIteration.bind(null, time, speedup, display_time, selected_chord), display_time * 1000);
     }
     var stopIteration = () => {
       window.clearTimeout(timeout);

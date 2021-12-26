@@ -205,11 +205,9 @@
     }
     var stopIteration = () => {
       window.clearTimeout(timeout);
-      clearHighlights();
       document.querySelector(".countdown").style.transition = `none`;
       document.querySelector(".countdown").style.width = "100%";
       document.querySelector(".countdown").style.visibility = `visible`;
-      document.querySelector(".chord-name").innerHTML = "--";
     }
 
   </script>
